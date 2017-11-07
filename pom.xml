@@ -21,26 +21,26 @@
     <!-- 依赖管理 -->
     <dependencies>
 
-        <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-orm</artifactId>-->
-            <!--<version>4.3.4.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId> com.mchange</groupId>-->
-            <!--<artifactId>c3p0</artifactId>-->
-            <!--<version>0.9.5.2</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.hibernate.javax.persistence</groupId>-->
-            <!--<artifactId>hibernate-jpa-2.1-api</artifactId>-->
-            <!--<version>1.0.0.Final</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId> org.springframework</groupId>-->
-            <!--<artifactId>spring-tx</artifactId>-->
-            <!--<version>4.3.4.RELEASE</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId> com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId> org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.3.4.RELEASE</version>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
@@ -117,7 +117,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8080</port>
+                    <port>8079</port>
                     <path>/chatroom</path>
                     <uriEncoding>UTF-8</uriEncoding>
                     <finalName>chatroom</finalName>

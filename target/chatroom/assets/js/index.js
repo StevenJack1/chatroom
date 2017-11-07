@@ -12,28 +12,19 @@ $(document).ready(function(){
          $(this).parent().parent().css('display','none')
       });
 
-      $('.qq-hui li').dblclick(function(){
-        $('.qq-chat').css('display','block').removeClass('mins')
-        $('.qq-chat-t-name').html($(this).find('span').html())
-        $('.qq-chat-t-head img').attr('src',$(this).find('img').attr('src'))
-        $('.qq-chat-you span').html($(this).find('span').html())
-        $('.qq-chat-you i').html($(this).find('.qq-hui-name i').html())
-        $('.qq-chat-ner').html($(this).find('.qq-hui-txt').html())
-        $("#qq-chat-text").trigger("focus")
-        $('.my').remove()
-      });
+
 
       $('.qq-exe img').dblclick(function(){
         $('.qq-login').css('display','block').removeClass('mins')
       });
 
-      $('.close').click(function(){
-        $(this).parent().parent().parent().css('display','none')
-      });
+
 
       $('.min').click(function(){
         $(this).parent().parent().parent().addClass('mins')
       });
+
+
 
       $('.qq .close').click(function(){
         $('.qq-chat').css('display','none')
@@ -45,20 +36,7 @@ $(document).ready(function(){
         }
       });
 
-      $('.fasong').click(function(){
-        if($('#qq-chat-text').val()==''){
-          alert("发送内容不能为空,请输入内容")
-        }else if($('#qq-chat-text').val()!=''){
-          var name = $('.qq-top-name span').html()
-          var ner = $('#qq-chat-text').val()
-          var ners = ner.replace(/\n/g,'<br>')
-          var now=new Date()
-          var t_div = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate()+' '+now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
-          $('.qq-chat-txt ul').append('<li class="my"><div class="qq-chat-my"><span>'+name+'</span><i>'+t_div+'</i></div><div class="qq-chat-ner">'+ners+'</div></li>')
-          $(".qq-chat-txt").scrollTop($(".qq-chat-txt")[0].scrollHeight);
-          $('#qq-chat-text').val('').trigger("focus")
-        }
-      });
+
 
       $('.close-chat').click(function(){
         $('.qq-chat').css('display','none')

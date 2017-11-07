@@ -33,10 +33,7 @@ public class ChatController {
 			// 清除旧的用户
 			session.removeAttribute("loginUser");
 		}
-		// 新登录，需要构建一个用户
-		// 随机生成一个用户
-		String id = UUID.randomUUID().toString();
-		loginUser.setId(id);
+		loginUser.setId(loginUser.getNickname());
 		// 将用户放入session
 		session.setAttribute("loginUser", loginUser);
 

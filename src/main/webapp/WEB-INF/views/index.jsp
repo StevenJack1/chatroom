@@ -10,17 +10,17 @@
 <head>
     <meta charset="utf-8">
     <title>Win10</title>
-    <link href="/assets/css/style_qq.css" rel="stylesheet" type="text/css">
-    <script src="/assets/js/jquery-2.1.1.min.js"></script>
-    <script src="/assets/js/index.js"></script>
-    <script src="/assets/js/superslide.2.1.js"></script>
-    <script src="/assets/js/nicescroll.js"></script>
+    <link href="${pageContext.request.contextPath}/assets/css/style_qq.css" rel="stylesheet" type="text/css">
+    <script src="${pageContext.request.contextPath}/assets/js/jquery-2.1.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/index.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/superslide.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/assets/js/nicescroll.js"></script>
 </head>
 
 <body>
-<div class="qq-exe"><img src="/assets/images/QQ-ICON.png"><input type="text" value="腾讯QQ" placeholder="腾讯QQ"></div>
+<div class="qq-exe"><img src="${pageContext.request.contextPath}/assets/images/QQ-ICON.png"><input type="text" value="腾讯QQ" placeholder="腾讯QQ"></div>
 
-<div class="win-bg"><img src="/assets/images/win-bg.png"></div>
+<div class="win-bg"><img src="${pageContext.request.contextPath}/assets/images/win-bg.png"></div>
 
 <div class="qq-login">
     <div class="login-menu">
@@ -28,7 +28,7 @@
     </div>
     <div class="login-ner">
         <div class="login-left">
-            <div class="login-head"><img src="/assets/images/QQ-ICON.png"></div>
+            <div class="login-head"><img src="${pageContext.request.contextPath}/assets/images/QQ-ICON.png"></div>
         </div>
         <div class="login-on">
             <form action="${pageContext.request.contextPath }/chat/login"  method="post">

@@ -39,13 +39,6 @@ public class Message {
 	@Setter
 	public String to;
 
-	//接收者姓名
-	@Expose
-	@Getter
-	@Setter
-	public String toName;
-
-
 	//发送的文本
 	@Expose
 	@Setter

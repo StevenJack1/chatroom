@@ -36,27 +36,22 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 	 */
 	@Override
 	public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
-		//将当前的连接的用户会话放入MAP,key是用户编号
+
 		User loginUser=(User) webSocketSession.getAttributes().get("loginUser");
 		USER_SOCKETSESSION_MAP.put(loginUser.getId(), webSocketSession);
 		
-		//群发消息告知大家
+
 		Message msg = new Message();
 		msg.setText("风骚的【"+loginUser.getNickname()+"】踩着轻盈的步伐来啦。。。大家欢迎！");
 		msg.setDate(new Date());
-		//获取所有在线的WebSocketSession对象集合
 		Set<Entry<String, WebSocketSession>> entrySet = USER_SOCKETSESSION_MAP.entrySet();
-		//将最新的所有的在线人列表放入消息对象的list集合中，用于页面显示
-
 		for (Entry<String, WebSocketSession> entry : entrySet) {
-			if(entry.getValue().getAttributes().get("loginUser") != loginUser){
+//			if(entry.getValue().getAttributes().get("loginUser") != loginUser){
 				msg.getUserList().add((User)entry.getValue().getAttributes().get("loginUser"));
-			}
+//			}
 		}
-		
-		//将消息转换为json
 		TextMessage message = new TextMessage(GsonUtils.toJson(msg));
-		//群发消息
+
 		sendMessageToAll(message);
 		
 	}
@@ -87,6 +82,7 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 		}else{
 			//单发
 			sendMessageToUser(msg.getTo(), new TextMessage(GsonUtils.toJson(msg)));
+			sendMessageToUser(msg.getFrom(),new TextMessage(GsonUtils.toJson(msg)));
 		}
 	}
 
@@ -185,14 +181,13 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 	/**
 	 * 
 	 * 说明：给某个人发信息
-	 * @param id
+	 * @param to
 	 * @param message
-	 * @throws IOException 
-	 * @time：2016年10月27日 下午10:40:52
+	 * @throws IOException
 	 */
-	private void sendMessageToUser(String id, TextMessage message) throws IOException{
+	private void sendMessageToUser(String to, TextMessage message) throws IOException{
 		//获取到要接收消息的用户的session
-		WebSocketSession webSocketSession = USER_SOCKETSESSION_MAP.get(id);
+		WebSocketSession webSocketSession = USER_SOCKETSESSION_MAP.get(to);
 		if (webSocketSession != null && webSocketSession.isOpen()) {
 			//发送消息
 			webSocketSession.sendMessage(message);
@@ -202,7 +197,6 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 	/**
 	 * 
 	 * 说明：群发信息：给所有在线用户发送消息
-	 * @time：2016年10月27日 下午10:40:07
 	 */
 	private void sendMessageToAll(final TextMessage message){
 		//对用户发送的消息内容进行转义
@@ -212,6 +206,7 @@ public class ChatWebSocketHandler implements WebSocketHandler {
 		for (Entry<String, WebSocketSession> entry : entrySet) {
 			//某用户的WebSocketSession
 			final WebSocketSession webSocketSession = entry.getValue();
+//			System.out.println(webSocketSession);
 			//判断连接是否仍然打开的
 			if(webSocketSession.isOpen()){
 				//开启多线程发送消息（效率高）

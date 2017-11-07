@@ -20,7 +20,7 @@ i{font-style:normal;}
 .none{display:none;}
 .red{color:#ea4848!important;}
 .blue{color:#0034fa!important;}
-/*.mins{height:0px!important;}*/
+.mins{height:0px!important;}
 
 /* div */
 li,ul{list-style:none;outside:none;}
